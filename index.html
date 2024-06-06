@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo vivido</title>
+</head>
+<body style="background-color: black;">
+
+    <h1 style="color: white; text-align: center; font-size: 40px; font-family: 'Courier New', Courier, monospace;">Estou vivo a:</h1> 
+    <h1 id="anos" style="color: white; text-align: center; font-size: 100px; font-family: 'Courier New', Courier, monospace;"></h1> 
+    <h1 style="color: white; text-align: center; font-size: 40px; font-family: 'Courier New', Courier, monospace;">ou</h1> 
+    <h1 id="meses" style="color: white; text-align: center; font-size: 100px; font-family: 'Courier New', Courier, monospace;"></h1> 
+    <h1 style="color: white; text-align: center; font-size: 40px; font-family: 'Courier New', Courier, monospace;">ou</h1> 
+    <h1 id="dias" style="color: white; text-align: center; font-size: 100px; font-family: 'Courier New', Courier, monospace;"></h1> 
+
+    <script>
+        // Defina as datas de início e término
+        var startDate = new Date("2003-05-01");
+        var endDate = new Date("2024-06-06");
+
+        // Calcule a diferença em milissegundos entre as datas
+        var difference = endDate.getTime() - startDate.getTime();
+
+        // Converta a diferença de milissegundos para dias
+        var daysDifference = Math.ceil(difference / (1000 * 60 * 60 * 24));
+
+        // Calcule anos, meses e dias
+        var years = Math.floor(daysDifference / 365);
+        var months = Math.floor((daysDifference % 365) / 30);
+        var remainingDays = daysDifference % 365 % 30;
+
+        // Exiba o resultado
+        document.getElementById("anos").innerHTML = years + " anos";
+        document.getElementById("meses").innerHTML = months + " meses";
+        document.getElementById("dias").innerHTML = remainingDays + " dias";
+
+    </script>
+</body>
+</html>
