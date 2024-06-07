@@ -10,14 +10,18 @@
     <h1 style="color: white; text-align: center; font-size: 40px; font-family: 'Courier New', Courier, monospace;">Estou vivo a:</h1> 
     <h1 id="anos" style="color: white; text-align: center; font-size: 100px; font-family: 'Courier New', Courier, monospace;"></h1> 
     <h1 style="color: white; text-align: center; font-size: 40px; font-family: 'Courier New', Courier, monospace;">ou</h1> 
-    <h1 id="meses" style="color: white; text-align: center; font-size: 100px; font-family: 'Courier New', Courier, monospace;"></h1> 
-    <h1 style="color: white; text-align: center; font-size: 40px; font-family: 'Courier New', Courier, monospace;">ou</h1> 
     <h1 id="dias" style="color: white; text-align: center; font-size: 100px; font-family: 'Courier New', Courier, monospace;"></h1> 
 
     <script>
         // Defina as datas de início e término
-        var startDate = new Date("2003-05-01");
-        var endDate = new Date("2024-06-06");
+        var startDate = new Date("2003-05-02");
+        var today = new Date();
+        var endDate = today;
+
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        today = yyyy + "-" + mm + "-" + dd;
 
         // Calcule a diferença em milissegundos entre as datas
         var difference = endDate.getTime() - startDate.getTime();
@@ -27,13 +31,13 @@
 
         // Calcule anos, meses e dias
         var years = Math.floor(daysDifference / 365);
-        var months = Math.floor((daysDifference % 365) / 30);
-        var remainingDays = daysDifference % 365 % 30;
+        var months = Math.floor(daysDifference / 30 );
 
         // Exiba o resultado
         document.getElementById("anos").innerHTML = years + " anos";
-        document.getElementById("meses").innerHTML = months + " meses";
-        document.getElementById("dias").innerHTML = remainingDays + " dias";
+        document.getElementById("dias").innerHTML = daysDifference + " dias";
+
+
 
     </script>
 </body>
